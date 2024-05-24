@@ -1,12 +1,14 @@
 ﻿using FinalExam.Business.Exceptions;
 using FinalExam.Business.Services.Abstract;
 using FinalExam.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata;
 
 namespace FinalExam.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin")]
     public class WorkerController : Controller
     {
             private readonly IWorkerService _workerService;
