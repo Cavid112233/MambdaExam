@@ -9,17 +9,16 @@ using System.Threading.Tasks;
 
 namespace FinalExam.Data.RepositoryConcretes
 {
-    public class GenericRepository : IGenericRepository<Worker>
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity, new()
     {
         AppDbContext _appDbContext;
         public GenericRepository(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
-
-        public Task AddAsync(Worker entity)
+        public async Task AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _appDbContext.Set<T>().AddAsync(entity);
         }
 
         public int Commit()
@@ -32,19 +31,23 @@ namespace FinalExam.Data.RepositoryConcretes
             return _appDbContext.SaveChangesAsync();
         }
 
-        public void DeleteAsync(Worker entity)
+        public void Delete(T entity)
         {
-            _appDbContext.Set<T>
+            _appDbContext.Set<T>().Remove(entity);
         }
 
-        public Task Get(Func<Worker, bool>? predicate = null)
+        public T Get(Func<T, bool>? predicate = null)
         {
-            throw new NotImplementedException();
+            return predicate == null ?
+                _appDbContext.Set<T>().FirstOrDefault() :
+                _appDbContext.Set<T>().FirstOrDefault(predicate);
         }
 
-        public Task GetAll(Func<Worker, bool>? predicate = null)
+        public List<T> GetAll(Func<T, bool>? predicate = null)
         {
-            throw new NotImplementedException();
+            return predicate == null ?
+                _appDbContext.Set<T>().ToList() :
+                _appDbContext.Set<T>().Where(predicate).ToList();
         }
     }
 }

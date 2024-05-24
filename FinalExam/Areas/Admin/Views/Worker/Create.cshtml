@@ -1,17 +1,40 @@
 ﻿@model Worker
-<form>
+<form asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="exampleInputEmail1" class="form-label">FullName</label>
+        <input asp-for="FullName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <span asp-validation-for="FullName" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="exampleInputPassword1" class="form-label">Experience</label>
+        <input asp-for="Experience" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="Experience" class="text-danger"></span>
     </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">FbLink</label>
+        <input asp-for="FbLink" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="FbLink" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">XUrl</label>
+        <input asp-for="XUrl" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="XUrl" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">LinkEdin</label>
+        <input asp-for="LinkEdnUrl" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="LinkEdnUrl" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Insta</label>
+        <input asp-for="InstaUrl" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="InstaUrl" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Insta</label>
+        <input asp-for="ImageFile" class="form-control" id="exampleInputPassword1">
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

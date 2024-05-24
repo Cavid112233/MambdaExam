@@ -44,10 +44,5 @@ namespace FinalExam.Areas.Admin.Controllers
         {
             return View();
         }
-        public Task<IActionResult> Login(AdminLoginVM adminLoginVM)
-        {
-            if(!ModelState.IsValid)
-                
-        }
     }
 }

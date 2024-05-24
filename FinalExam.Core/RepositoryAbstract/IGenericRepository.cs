@@ -10,9 +10,9 @@ namespace FinalExam.Core.RepositoryAbstract
     public interface IGenericRepository<T> where T : BaseEntity, new()
     {
         Task AddAsync(T entity);
-        void DeleteAsync(T entity);
-        Task Get(Task<T, bool>? predicate = null);
-        Task GetAll(Func<T, bool>? predicate = null);
+        void Delete(T entity);
+        T Get(Func<T, bool>? predicate = null);
+        List<T> GetAll(Func<T, bool>? predicate = null);
         int Commit();
         Task<int> CommitAsync();
     }

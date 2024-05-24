@@ -1,9 +1,24 @@
 ﻿@model Worker
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+<div class="container">
+    <div class="row">
+        <div col-12>
+            <form asp-action="DeletePost" method="post">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/uploads/workers/@Model.ImageUrl" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.FullName</h5>
+                        <p class="card-text">@Model.Experience</p>
+                        <p class="card-text">@Model.InstaUrl</p>
+                        <p class="card-text">@Model.XUrl</p>
+                        <p class="card-text">@Model.LinkEdnUrl</p>
+                        <p class="card-text">@Model.FbLink</p>
+                        <a asp-action="index" asp-controller="worker" class="btn btn-outline-info">Go Back</a>
+                        <input asp-for="@Model.Id" hidden value="@Model.Id" />
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

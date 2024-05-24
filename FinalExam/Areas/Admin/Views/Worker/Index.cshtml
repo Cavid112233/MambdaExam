@@ -1,33 +1,51 @@
 ﻿@model List<Worker>
 @{
-
+    int counter = 1;
 }
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 mb-3">
+            <a asp-action="Create" asp-controller="Worker" class="btn btn-outline-primary">Create Worker</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">FullName</th>
+                        <th scope="col">Experience</th>
+                        <th scope="col">FbLink</th>
+                        <th scope="col">InstaUrl</th>
+                        <th scope="col">XUrl</th>
+                        <th scope="col">LinkEdnUrl</th>
+                        <th scope="col">Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@(counter++)</th>
+                            <td>@item.Id</td>
+                            <td>@item.FullName</td>
+                            <td>@item.Experience</td>
+                            <td>@item.FbLink</td>
+                            <td>@item.InstaUrl</td>
+                            <td>@item.XUrl</td>
+                            <td>@item.LinkEdnUrl</td>
+                            <td><img src="~/uploads/workers/@item.ImageUrl" width="100" height="100" /></td>
+                            <td>
+                                <a asp-action="Update" asp-controller="Worker" asp-route-id="@item.Id" class="btn btn-outline-warning">Update</a>
+                                <a asp-action="Delete" asp-controller="Worker" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
