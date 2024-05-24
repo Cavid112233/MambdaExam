@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FinalExam.Data.RepositoryConcretes
 {
-    public class GenericRepository 
+    public class GenericRepository : IGenericRepository<Worker>
     {
         AppDbContext _appDbContext;
         public GenericRepository(AppDbContext appDbContext)
@@ -17,19 +17,24 @@ namespace FinalExam.Data.RepositoryConcretes
             _appDbContext = appDbContext;
         }
 
+        public Task AddAsync(Worker entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Commit()
         {
-            return _appDbContext.Set<T>()
+            return _appDbContext.SaveChanges();
         }
 
         public Task<int> CommitAsync()
         {
-            throw new NotImplementedException();
+            return _appDbContext.SaveChangesAsync();
         }
 
         public void DeleteAsync(Worker entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.Set<T>
         }
 
         public Task Get(Func<Worker, bool>? predicate = null)

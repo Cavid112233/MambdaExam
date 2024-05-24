@@ -11,7 +11,7 @@ namespace FinalExam.Core.RepositoryAbstract
     {
         Task AddAsync(T entity);
         void DeleteAsync(T entity);
-        Task Get(Func<T, bool>? predicate = null);
+        Task Get(Task<T, bool>? predicate = null);
         Task GetAll(Func<T, bool>? predicate = null);
         int Commit();
         Task<int> CommitAsync();

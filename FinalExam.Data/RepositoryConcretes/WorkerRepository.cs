@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace FinalExam.Data.RepositoryConcretes
 {
-    public class WorkerRepository : 
+    public class WorkerRepository 
     {
+
     }
 }

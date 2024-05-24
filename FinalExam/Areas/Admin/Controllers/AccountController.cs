@@ -1,4 +1,5 @@
-﻿using FinalExam.Core.Models;
+﻿using FinalExam.Areas.Admin.ViewModels;
+using FinalExam.Core.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -42,6 +43,11 @@ namespace FinalExam.Areas.Admin.Controllers
         public IActionResult Login()
         {
             return View();
+        }
+        public Task<IActionResult> Login(AdminLoginVM adminLoginVM)
+        {
+            if(!ModelState.IsValid)
+                
         }
     }
 }

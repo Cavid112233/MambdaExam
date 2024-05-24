@@ -25,12 +25,8 @@ namespace FinalExam.Business.Services.Concretes
 
         public async Worker AddWorker(Worker worker)
         {
-            if (worker == null) throw new Exception("Isci null ola bilmez!");
             await _workerRepository.AddAsync(worker);
-            _workerRepository.Commit();
         }
-
-        
 
         public void DeleteWorker(int id)
         {
